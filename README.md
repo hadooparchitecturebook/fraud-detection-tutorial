@@ -1,8 +1,15 @@
 # fraud-detection-tutorial
 
-The demo uses 5 nodes. The first 2 nodes (NODE1 and NODE2) run Kafka, NODE3 runs flume and zookeeper and NODE3, NODE4 and NODE5 form a 3 node hadoop cluster with HDFS and YARN. Cloudera Manager server runs on NODE3 as well, and can be reached through a web browser on port 7180 ($NODE3:7180). It's left as an exercise to the reader to set up a cluster in this topology. NODE4 also runs the Jetty server.
+## Disclaimer
+This code and repo comes with no guarantees or support from the Hadoop Architectures team. We don't have the bandwidth to support users of this repo in any way. This was done as a mere Proof-Of-Concept for the demo.
 
-The name of our cluster nodes, and other properties required in this file are in cluster.properties file in the root directory of this repository.
+## Introduction
+The demo uses 5 nodes. The first 2 nodes (NODE1 and NODE2) run Kafka, NODE3 runs flume and zookeeper and NODE3, NODE4 and NODE5 form a 3 node hadoop cluster with HDFS and YARN. Cloudera Manager server runs on NODE3 as well, and can be reached through a web browser on port 7180 ($NODE3:7180). NODE4 also runs the Jetty server. It's left as an exercise to the reader to set up a cluster in this topology.
+
+The name of our cluster nodes, and other properties required in this file are in cluster.properties file in the root directory of this repository. We recommend you source out this file on all nodes of the cluster:
+<pre>
+. cluster.properties
+</pre>
 
 In order to build the demo, simply run build.sh script in the root directory of this repository.
 <pre>
