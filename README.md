@@ -123,56 +123,57 @@ $NODE1:9092,$NODE2:9092 \
 5000 2000 100 7 $NODE3
 
 This command copies the website contents to Node 4:
+<pre>
 scp webapp.zip $SSH_USER@$NODE4:./
 ssh root@$NODE4 'unzip webapp.zip'
+</pre>
 
-//Command to start Jetty Server
-java -cp Node360.jar com.cloudera.sa.node360.playarea.JettyMain 4251 ted-hadoop-world-demo-3.vpc.cloudera.com
+This command starts the Jetty server:
+<pre>
+java -cp Node360.jar com.cloudera.sa.node360.playarea.JettyMain 4251 $NODE3
+</pre>
 
-//How to get to the home page
-http://ted-hadoop-world-demo-4.vpc.cloudera.com:4251/fe/home.jsp
+To get to the homepage, you can point your browser to http://$NODE4:4251/fe/home.jsp
 
---- Hive
-/tmp/node_status/channel1
-
-create table netflow (
-  time_of_netflow bigint,
-  source_address string , 
-  source_port int , 
-  protocal string , 
-  number_of_bytes int , 
-  dest_address string , 
-  dest_port int ) 
+These are some steps you can run to analyze data in Hive (optional):
+<pre>
+CREATE TABLE netflow (
+  time_of_netflow BIGINT,
+  source_address STRING , 
+  source_port INT , 
+  protocal STRING , 
+  number_of_bytes INT , 
+  dest_address STRING , 
+  dest_port INT ) 
 ROW FORMAT DELIMITED
    FIELDS TERMINATED BY ","
 STORED AS SEQUENCEFILE;
 
-load data inpath "/tmp/node_status/channel1" overwrite into table netflow;
+LOAD DATA INPATH "/tmp/node_status/channel1" OVERWRITE INTO TABLE netflow;
 
-select
+SELECT
  source_address,
  dest_address,
- sum(number_of_bytes),
- avg(number_of_bytes),
- max(number_of_bytes),
- min(number_of_bytes),
- count(number_of_bytes)
-from netflow
-group by source_address, dest_address
+ SUM(number_of_bytes),
+ AVG(number_of_bytes),
+ MAX(number_of_bytes),
+ MIN(number_of_bytes),
+ COUNT(number_of_bytes)
+FROM netflow
+GROUP BY source_address, dest_address
 
-select
+SELECT
  source_address,
  dest_address,
- sum(number_of_bytes) byte_sum,
- avg(number_of_bytes),
- max(number_of_bytes),
- min(number_of_bytes),
- count(number_of_bytes)
-from netflow
-group by source_address, dest_address 
-order by byte_sum desc
+ SUM(number_of_bytes) byte_sum,
+ AVG(number_of_bytes),
+ MAX(number_of_bytes),
+ MIN(number_of_bytes),
+ COUNT(number_of_bytes)
+FROM netflow
+GROUP BY source_address, dest_address 
+ORDER BY byte_sum DESC
 
 --- Sym
-
 java -cp Node360.jar com.cloudera.sa.node360.playarea.KafkaProducerMain net_flow node_status 172.28.198.81:9092,172.28.198.82:9092 5000 200 100 7
 
