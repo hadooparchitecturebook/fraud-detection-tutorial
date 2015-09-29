@@ -64,10 +64,10 @@ tier1.sinks = sink1
 tier1.channels.channel1.type = org.apache.flume.channel.kafka.KafkaChannel
 tier1.channels.channel1.capacity = 10000
 tier1.channels.channel1.transactionCapacity = 1000
-tier1.channels.channel1.brokerList = ted-hadoop-world-demo-1.vpc.cloudera.com:9092,ted-hadoop-world-demo-2.vpc.cloudera.com:9092
+tier1.channels.channel1.brokerList = NODE1:9092,NODE2:9092
 tier1.channels.channel1.topic = net_flow
 tier1.channels.channel1.groupID = foo_2
-tier1.channels.channel1.zookeeperConnect = ted-hadoop-world-demo-3.vpc.cloudera.com:2181
+tier1.channels.channel1.zookeeperConnect = NODE3:2181
 tier1.channels.channel1.parseAsFlumeEvent = false
 
 tier1.channels.null-channel1.type = com.cloudera.sa.node360.flume.NullChannel
@@ -86,7 +86,7 @@ tier1.sinks.sink1.hdfs.codeC = snappy
 tier1.sinks.sink1.channel = channel1
 
 tier1.sources.kafka-source-1.type = com.cloudera.sa.node360.kafka.FastKafkaSource
-tier1.sources.kafka-source-1.zookeeperConnect = ted-hadoop-world-demo-3.vpc.cloudera.com:2181
+tier1.sources.kafka-source-1.zookeeperConnect = NODE3:2181
 tier1.sources.kafka-source-1.topic = net_flow
 tier1.sources.kafka-source-1.interceptors = i1
 tier1.sources.kafka-source-1.interceptors.i1.type = com.cloudera.sa.node360.flume.EventInterceptor$Builder
@@ -96,7 +96,7 @@ tier1.sources.kafka-source-1.groupId = foo_source_1
 tier1.sources.kafka-source-1.channels = null-channel1
 
 tier1.sources.kafka-source-2.type = com.cloudera.sa.node360.kafka.FastKafkaSource
-tier1.sources.kafka-source-2.zookeeperConnect = ted-hadoop-world-demo-3.vpc.cloudera.com:2181
+tier1.sources.kafka-source-2.zookeeperConnect = NODE3:2181
 tier1.sources.kafka-source-2.topic = node_status
 tier1.sources.kafka-source-2.interceptors = i1
 tier1.sources.kafka-source-2.interceptors.i1.type = com.cloudera.sa.node360.flume.EventInterceptor$Builder
