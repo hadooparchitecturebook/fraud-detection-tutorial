@@ -1,0 +1,42 @@
+body {
+	font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+
+}
+
+
+  table#t01 th	{
+      background-color:4d4d4d;
+      color: white;
+      text-align:left;
+      padding: 5px;
+  }
+
+  table#t01 tr:nth-child(even) {
+      background-color: #eee;
+      font: 12px sans-serif;
+  }
+  table#t01 tr:nth-child(odd) {
+     background-color:#fff;
+     font: 12px sans-serif;
+  }
+  table#tbc td	{
+        background-color: #4d4d4d;
+        color: white;
+        text-align:left;
+        padding: 5px;
+        font: 16px sans-serif;
+  }
+
+  table#tbc a 	{
+          color: #aaccff;
+    }
+
+
+
+  a {
+      color: #5577dd;
+  }
+
+  body {
+    font: 12px sans-serif;
+  }
