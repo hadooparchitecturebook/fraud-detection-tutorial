@@ -26,9 +26,11 @@ In order to load the Node360 to NODE3, run:
 scp target/Node360.jar $SSH_USER@$NODE3:/usr/lib/flume-ng/plugins.d/sink1/lib
 </pre>
 
-//Upload node360 jar to 3 and 4 for the web server and kafka producer
+You can upload the node360 code to nodes 3 and 4 for the web server and kafka using:
+<pre>
 scp target/Node360.jar $SSH_USER@$NODE1:./
 scp target/Node360.jar $SSH_USER@$NODE4:./
+</pre>
 
 In order to create kafka topics, you can run the following commands from any node of the cluster - preferably, one of node 1 or 2 since they would have kafka installed:
 <pre>
