@@ -55,7 +55,7 @@ kafka-console-producer --broker-list $NODE1:9092,$NODE2:9092 --topic test
 kafka-console-consumer --zookeeper $NODE3:2181 --topic test --from-beginning
 </pre>
 
-You also need update Flume agent's configuration with the following. Please be sure to replace references to NODE* to your nodes.
+You also need update Flume agent's configuration with the following. <b>Please be sure to replace references to NODE* to your nodes</b>.
 <pre>
 tier1.sources = kafka-source-1 kafka-source-2
 tier1.channels = channel1 null-channel1
