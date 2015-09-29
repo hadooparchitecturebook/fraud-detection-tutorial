@@ -1,4 +1,4 @@
 #!/bin/bash
-mvn clean package
+mvn package
 rm -rf webapp.zip
 zip -r webapp webapp
