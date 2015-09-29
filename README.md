@@ -1,7 +1,13 @@
 # fraud-detection-tutorial
 
 ## Disclaimer
-This code and repo comes with no guarantees or support from the Hadoop Architectures team. We don't have the bandwidth to support users of this repo in any way. This was done as a mere Proof-Of-Concept for the demo.
+This code and repo comes with no guarantees or support from the Hadoop Architectures team. We don't have the bandwidth to support users of this repo in any way. This was done as a mere Proof-Of-Concept to help demonstrate core concepts around the use case.
+
+## Demonstrations
+
+This code has been used in the following presentations:
+
+* ["Hadoop Application Architectures: Fraud Detection" @ Strata / Hadoop World New York 2015](http://tiny.cloudera.com/app-arch-new-york)
 
 ## Introduction
 The demo uses 5 nodes. The first 2 nodes (NODE1 and NODE2) run Kafka, NODE3 runs flume and zookeeper and NODE3, NODE4 and NODE5 form a 3 node hadoop cluster with HDFS and YARN. Cloudera Manager server runs on NODE3 as well, and can be reached through a web browser on port 7180 ($NODE3:7180). NODE4 also runs the Jetty server. It's left as an exercise to the reader to set up a cluster in this topology.
